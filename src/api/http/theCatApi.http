@@ -1,0 +1,61 @@
+@apiKey = 0e0fc402-17a1-4679-8cca-1d90d8ab0656
+@baseUrl = https://api.thecatapi.com/v1
+
+
+### Get random image
+GET {{baseUrl}}/images/search
+x-api-key: {{apiKey}}
+
+
+### Add image
+POST {{baseUrl}}/images/upload
+x-api-key: {{apiKey}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="cat5.jpg"
+Content-Type: image/jpeg
+
+< ./cat1.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+### Get my images
+GET {{baseUrl}}/images
+x-api-key: {{apiKey}}
+
+
+### Add image as favourite
+POST {{baseUrl}}/favourites
+x-api-key: {{apiKey}}
+content-type: application/json
+
+{
+  "image_id": "nQdopMVWc"
+}
+
+
+### Get favourite images
+GET {{baseUrl}}/favourites
+x-api-key: {{apiKey}}
+
+
+### Delete favourite image
+DELETE {{baseUrl}}/favourites/2047861
+x-api-key: {{apiKey}}
+
+
+### Vote
+POST {{baseUrl}}/votes
+x-api-key: {{apiKey}}
+content-type: application/json
+
+{
+  "image_id": "nQdopMVWc",
+  "value": "0"
+}
+
+
+### Get votes
+GET {{baseUrl}}/votes
+x-api-key: {{apiKey}}
